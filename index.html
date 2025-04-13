@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Memory Match Game</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center p-6 space-y-6">
+  <h1 class="text-4xl font-bold">🎮 Welcome to Memory Match Game</h1>
+  
+  <div>
+    <label for="difficulty" class="block text-lg mb-2">Select Difficulty:</label>
+    <select id="difficulty" class="text-black px-4 py-2 rounded-lg">
+      <option value="easy">Easy (4x4 - 40s)</option>
+      <option value="hard">Hard (6x6 - 80s)</option>
+    </select>
+  </div>
+
+  <button id="start-btn" class="bg-blue-500 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-lg">
+    🚀 Start Game
+  </button>
+
+  <script>
+    document.getElementById('start-btn').addEventListener('click', () => {
+      const difficulty = document.getElementById('difficulty').value;
+      window.location.href = `game.html?difficulty=${difficulty}`;
+    });
+  </script>
+</body>
+</html>

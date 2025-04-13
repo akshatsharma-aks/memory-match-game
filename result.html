@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Game Result</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center p-6 space-y-4">
+  <h1 id="result-message" class="text-4xl font-bold"></h1>
+
+  <div id="final-stats" class="text-lg text-center"></div>
+
+  <button id="new-game" class="bg-green-500 hover:bg-green-700 px-6 py-2 rounded-lg">
+    🔁 New Game
+  </button>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const result = params.get('result');
+    const time = params.get('time');
+    const moves = params.get('moves');
+    window.addEventListener('load', () => {
+      const winSound = new Audio('sounds/win.mp3');
+      const loseSound = new Audio('sounds/lose.mp3');
+      if (result === 'win'){
+        winSound.play().catch(err => {
+          // Some browsers block autoplay without user interaction
+          console.log('Autoplay failed:', err);
+        });
+      }
+      else{
+        loseSound.play().catch(err => {
+          // Some browsers block autoplay without user interaction
+          console.log('Autoplay failed:', err);
+      });
+      }
+    });
+
+    document.getElementById('result-message').textContent = result === 'win' ? '🎉 You Won!' : '💀 You Lost!';
+    document.getElementById('final-stats').innerHTML = `⏱️ Time: ${time}s<br>🎯 Moves: ${moves}`;
+
+    document.getElementById('new-game').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

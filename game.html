@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Memory Match Game</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center p-4">
+  <h1 class="text-3xl font-bold mb-4">🧠 Match the Cards!</h1>
+
+  <div class="flex justify-between w-full max-w-[600px] mb-4">
+    <div id="timer" class="text-lg">⏱️ Time: 0s</div>
+    <div id="moves" class="text-lg">🎯 Moves: 0</div>
+  </div>
+
+  <div id="game-board" class="grid gap-3 max-w-[600px] w-full"></div>
+
+  <button id="reset-btn" class="mt-6 px-6 py-2 bg-red-500 hover:bg-red-700 rounded-lg">
+    🔄 Reset Game
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
